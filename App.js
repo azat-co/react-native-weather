@@ -17,6 +17,12 @@ export default class App extends React.Component {
   }
   search() {
     console.log(this.state.cityName)
+    fetch(`http://api.openweathermap.org/data/2.5/forecast?q=${this.state.cityName}&mode=json&appid=6ea35fbcd51d5e917b7d8309292bc51c`,{
+      method: 'GET'})
+      .then(response=>response.json())
+      .then(data=>{
+        console.log(data)
+      })  
   }
   render() {
     return (
